@@ -1,5 +1,5 @@
 //sum of squares [2,4,3]
-//output 29
+//output 29(4+16+9)
 
 
 const sumOfSquares=(arr)=>{
