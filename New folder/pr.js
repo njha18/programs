@@ -1,6 +1,6 @@
 const btn = document.querySelector(".increment_btn");
-const btnpress = document.querySelector(".innerContainer");
-const count = document.querySelector(".secondInnerContainer");
+const btnpress = document.querySelector(".pressedClass");
+const count = document.querySelector(".triggeredClass");
 var press = 0;
 var trigger = 0;
 

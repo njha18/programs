@@ -10,7 +10,7 @@
 // const mobileNo=(str)=>{
 //     let regex=/^[6-9][\d]{9}$/  
 //     return regex.test(str)
-// }
+// }validatePassword
 // console.log(mobileNo("911234567"));
 
 //extract number from the string
@@ -21,7 +21,7 @@
 // console.log(num("abc123def456"))
 //validate hex color
 const validateHexColor=(str)=>{
-    return /^#[A-Fa-f\d]{3}|[A-Fa-f\d]{6}$/.test(str)
+    return /^#[A-Fa-f\d]{3}|[A-Fa-f\d]{6}$/.test(str) 
 }
 console.log(validateHexColor("#a23"));
 // //validate Date
@@ -33,12 +33,3 @@ console.log(validateHexColor("#a23"));
 
 
 
-// Create a function that converts a JavaScript object into a query string.
-// - Write a function that parses a query string back into a JavaScript object.
-// Write a custom polyfill for the typeof operator that returns the correct type of a JavaScript value.
-
-// Create a function that converts a JavaScript value to a JSON string.
-// - Implement a function that converts a JSON string back into a JavaScript value.
-// Create a function that merges two objects, deeply combining their properties.
-// - Implement a function that deep freezes an object, preventing any changes.
-// -

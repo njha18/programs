@@ -1,51 +1,60 @@
 function PromisePollyfill(executor) {
-    let onResolve, onReject, isFulfilled = false, isRejected = false, value;
+    let onResolve = null;
+    let onReject = null;
+    let isFulfilled = false;
+    let isRejected = false;
+    let isCalled = false;
+    let value;
 
     function resolve(val) {
+        if (isFulfilled || isRejected) return; // prevent multiple calls
         isFulfilled = true;
         value = val;
-        if (typeof onResolve == "function") {
-            onResolve(val);
+        if (typeof onResolve === "function" && !isCalled) {
+            isCalled = true;
+            onResolve(value);
         }
     }
 
     function reject(val) {
+        if (isFulfilled || isRejected) return;
         isRejected = true;
         value = val;
-        if (typeof onReject == "function") {
+        if (typeof onReject === "function" && !isCalled) {
+            isCalled = true;
             onReject(value);
         }
     }
 
-    this.then = function(callback) {
+    this.then = function (callback) {
         onResolve = callback;
-        if (isFulfilled&& !isCalled){
-            // If already fulfilled, immediately call the callback
+        if (isFulfilled && !isCalled) {
+            isCalled = true;
             onResolve(value);
         }
-        return this;
+        return this; // support chaining
     };
 
-    this.catch = function(callback) {
+    this.catch = function (callback) {
         onReject = callback;
         if (isRejected && !isCalled) {
-            // If already rejected, immediately call the callback
+            isCalled = true;
             onReject(value);
         }
         return this;
     };
 
     try {
-        executor(resolve, reject); // Executes the provided executor function
+        executor(resolve, reject);
     } catch (err) {
-        reject(err);  // Rejects the promise if an error occurs in the executor
+        reject(err);
     }
 }
 
+
 const examplePromise = new PromisePollyfill((resolve, reject) => {
-    setTimeout(() => {
-        reject(2); // Resolves the promise with value 2 after 1 second
-    }, 1000);
+    // 
+    resolve(2)
 });
 
 examplePromise

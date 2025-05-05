@@ -1,15 +1,15 @@
-function isPalindromeString(str){
-    const len=str.length 
+// function isPalindromeString(str){
+//     const len=str.length 
                                
-    for(i=0;i<len/2;i++){ 
-        if(str[i]!==str[len-i-1]){ 
-            return "not palindrome"
-        }
+//     for(i=0;i<len/2;i++){ 
+//         if(str[i]!==str[len-i-1]){ 
+//             return "not palindrome"
+//         }
         
-    }
-    return "palindrome";
-}
-console.log(isPalindromeString("hello"));
+//     }
+//     return "palindrome";
+// }
+// console.log(isPalindromeString("hello"));
 
 //numbers
 function isPalindromeNumber(num){
