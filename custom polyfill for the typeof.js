@@ -4,7 +4,7 @@ const customTypeof=(value)=>{
         return "null"
     }
     if(value===undefined){
-        return undefined;
+        return "undefined";
     }
     if(typeof value==="function"){
         return "function";

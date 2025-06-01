@@ -6,6 +6,7 @@ const countChar = (word, char) => {
   word = word.toLowerCase();
   char = char.toLowerCase();
   word = word.split("");
+  console.log(word)
  totalCount= word.reduce((acc, curr) => {
     if (curr === char) {
       acc++;
