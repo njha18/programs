@@ -27,3 +27,31 @@ return true
     }
     return arr1===arr2;
 }
+//const deepCompare = (arr1, arr2) => {
+  // Check if both inputs are arrays
+  if (!Array.isArray(arr1) || !Array.isArray(arr2)) return false;
+
+  // Check length
+  if (arr1.length !== arr2.length) return false;
+
+  // Compare each element
+  for (let i = 0; i < arr1.length; i++) {
+    const val1 = arr1[i];
+    const val2 = arr2[i];
+
+    // If both are arrays, compare deeply
+    if (Array.isArray(val1) && Array.isArray(val2)) {
+      if (!deepCompare(val1, val2)) return false;
+    }
+    // If one is array and the other isn't
+    else if (Array.isArray(val1) || Array.isArray(val2)) {
+      return false;
+    }
+    // Compare primitive values
+    else if (val1 !== val2) {
+      return false;
+    }
+  }
+
+  return true;
+};
