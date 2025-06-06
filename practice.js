@@ -1,15 +1,11 @@
-//input("neehaaaa","a")
-//output-4
-//handle both lower and uppercase character
+const arr = [1, 3, 3, 3, 4, 4, 7];
 
-
-const countChar=(substr,char)=>{
-substr=substr.split("");
-return substr.reduce((acc,curr)=>{
-    if(curr.includes(char)){
-        acc+=1
-    }
-    return acc;
-},0)
-}
-console.log(countChar("neehaaaa","a"));
+const result=arr.reduce((acc,curr)=>{
+acc[curr]=(acc[curr]??0)+1
+return acc
+},{})
+console.log(result);
+const sorted=[...new Set(arr)].sort((a,b)=>{
+  return  result[b]-result[a]
+})
+console.log(sorted)
