@@ -9,7 +9,7 @@ function PromisePollyfill(executor) {
     function resolve(val) {
         if (isFulfilled || isRejected) return; // prevent multiple calls
         isFulfilled = true;
-        value = val;
+        val=value
         if (typeof onResolve === "function" && !isCalled) {
             isCalled = true;
             onResolve(value);
@@ -19,7 +19,7 @@ function PromisePollyfill(executor) {
     function reject(val) {
         if (isFulfilled || isRejected) return;
         isRejected = true;
-        value = val;
+         val=value;
         if (typeof onReject === "function" && !isCalled) {
             isCalled = true;
             onReject(value);

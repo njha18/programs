@@ -50,6 +50,7 @@ return true
     // Compare primitive values
     else if (val1 !== val2) {
       return false;
+  
     }
   }
 
